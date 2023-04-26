@@ -6,16 +6,24 @@ import SearchProducts from "@/components/searchProducts";
 import { useProducts } from "@/hooks/useProducts";
 import { Product } from "@/types/product";
 import { filterProducts } from "@/utils/filter-products";
+import { requestProducts } from "@/utils/request-products";
 import ErrorPage from "next/error";
 import { useState } from "react";
-import { requestProducts } from "@/utils/request-products";
+// import { requestProducts } from "@/utils/request-products";
 import { Category } from "@/types/category";
 import { formatCategory } from "@/utils/format-category";
 import { getCategoryName } from "@/utils/get-category-name";
 
-const Home = ({ data: products }: { data: Product[] }): JSX.Element => {
+export type HomeProps = { initialProducts: Product[] };
+
+const Home = ({ initialProducts }: HomeProps): JSX.Element => {
+  console.log(initialProducts);
   const [productSearchQuery, setProductSearchQuery] = useState<string>("");
   const [userSelectCategory, setUserSelectCategory] = useState<string>("");
+
+  const { data: products, isLoading, error } = useProducts(initialProducts);
+
+  console.log("products", products);
 
   const handleCategoryClick = (category: Category) => {
     setUserSelectCategory(category);
@@ -24,7 +32,7 @@ const Home = ({ data: products }: { data: Product[] }): JSX.Element => {
   // const { data: products, isLoading, error } = useProducts();
 
   const filteredProducts = filterProducts({
-    products,
+    products: products ?? [],
     productSearchQuery,
     userSelectCategory,
   });
@@ -78,32 +86,38 @@ const Home = ({ data: products }: { data: Product[] }): JSX.Element => {
       </div>
 
       <ProductCardsContainer>
-        {
-          //  isLoading ? (
-          //    Array.from({ length: 10 }).map((_, index) => (
-          //      <LoadingProductCard key={index} />
-          //    ))
-          //  ) :
-          filteredProducts.length ? (
-            filteredProducts.map((product: Product) => (
-              <ProductCard key={product.id} {...product} />
-            ))
-          ) : (
-            <NoProductMessage message="No product found!" />
-          )
-        }
+        {isLoading && !filteredProducts ? (
+          Array.from({ length: 10 }).map((_, index) => (
+            <LoadingProductCard key={index} />
+          ))
+        ) : filteredProducts.length ? (
+          filteredProducts.map((product: Product) => (
+            <ProductCard key={product.id} {...product} />
+          ))
+        ) : (
+          <NoProductMessage message="No product found!" />
+        )}
       </ProductCardsContainer>
     </>
   );
 };
-export default Home;
 
-export async function getServerSideProps() {
-  const data = await requestProducts();
-
+export async function getStaticProps() {
+  const initialProducts = await requestProducts();
   return {
     props: {
-      data,
+      initialProducts,
     },
   };
 }
+export default Home;
+
+// export async function getServerSideProps() {
+//   const data = await requestProducts();
+
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
