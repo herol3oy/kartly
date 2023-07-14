@@ -1,3 +1,6 @@
+build
+coverage
+
 /node_modules
 /.pnp
 .pnp.js
@@ -6,8 +9,6 @@
 
 /.next/
 /out/
-
-/build
 
 .DS_Store
 *.pem

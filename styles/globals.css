@@ -2,26 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  .primary-bg-color {
+    @apply bg-black;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .primary-text-color {
+    @apply text-black;
+  }
+
+  .secondary-bg-color {
+    @apply bg-blue-600;
+  }
+
+  .secondary-text-color {
+    @apply text-blue-600;
+  }
+
+  .primary-border-color {
+    @apply border-black;
+  }
+
+  .primary-badge {
+    @apply h-7 top-0 left-0 px-2 py-1 font-bold primary-bg-color text-center;
+  }
+
+  .card:hover .link {
+    @apply primary-bg-color text-white;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+*::-webkit-scrollbar {
+  width: 0.15rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: black;
 }

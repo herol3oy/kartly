@@ -1,38 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Kartly - Online Shopping Center
 
-## Getting Started
+Kartly is an online shopping center developed using the Next.js framework. It allows users to browse products from various categories, check the product details and search through them.
 
-First, run the development server:
+## Design Decisions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- **Server-side rendering:** Ensuring the app is performant
+
+- **Caching:TanStack Query:** Improving the UX
+
+- **State management**: React composition and passing props
+
+- **CSS framework: Tailwind**: UI design consistency
+
+- **Code formatting and quality: Prettier and Git-hooks** Maintaining code quality and consistency
+
+- **Branching model: Git-flow**
+
+## Code Structure
+
+Using modular and component-based architecture.
+
+## File Structure
+
+```sh
+.
+
+├── components
+
+├── hooks
+
+├── pages
+
+│ └──  products
+
+├── public
+
+│ └──  icons
+
+├── styles
+
+├── types
+
+└── utils
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The file structure of the app is as the following directories:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **components:** Contains all the UI components used throughout the app. (camelCase)
+- **hooks:** Contains custom hooks used in the app. (camelCase)
+- **types:** This directory contains TypeScript types used throughout the app. (snake-case)
+- **utils:** This directory contains utility functions used throughout the app. (snake-case)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Tech Stacks and utility tools
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Next.js
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- React
 
-## Learn More
+- Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+- Git-hooks: To enforce certain rules, such as running Prettier before committing the code changes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Prettier: To maintain consistency in the codebase
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- TanStack Query: To fetch and cache data
 
-## Deploy on Vercel
+- Git-flow: Git branching model
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Screenshot
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src="./kartly-lg-screenshot.png" width="1920">
