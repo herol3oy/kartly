@@ -4,9 +4,9 @@ const SearchProducts = ({
   productSearchQuery,
   setProductSearchQuery,
 }: SearchProductsProps) => (
-  <div className="flex my-10 h-16">
+  <div className="my-10 flex h-16">
     <input
-      className="w-full text-center md:text-center lg:text-start text-xl md:text-3xl border border-slate-400 focus:border-b-4 outline-none primary-text-color primary-border-color transition-all p-5"
+      className="primary-text-color primary-border-color w-full border border-slate-400 p-5 text-center text-xl outline-none transition-all focus:border-b-4 md:text-center md:text-3xl lg:text-start"
       type="text"
       name="search"
       placeholder="Search for products"

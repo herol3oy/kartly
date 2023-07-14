@@ -14,7 +14,7 @@ const CategoryBadge = ({ category }: CategoryBadgeProps) => {
     }[category] || ''
 
   return (
-    <small className={`${categoryBackgrounds} absolute primary-badge`}>
+    <small className={`${categoryBackgrounds} primary-badge absolute`}>
       {formatCategory(categoryName)}
     </small>
   )

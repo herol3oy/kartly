@@ -37,12 +37,12 @@ const Home = ({ initialProducts }: HomeProps) => {
         setProductSearchQuery={setProductSearchQuery}
       />
 
-      <div className="flex gap-2 my-10 justify-center">
+      <div className="my-10 flex justify-center gap-2">
         <button
           onClick={() => setUserSelectCategory('')}
           className={`${
             userSelectCategory === '' && 'primary-bg-color text-white'
-          } border primary-border-color primary-text-color p-2 font-boldx`}
+          } primary-border-color primary-text-color font-boldx border p-2`}
         >
           All
         </button>
@@ -57,7 +57,7 @@ const Home = ({ initialProducts }: HomeProps) => {
           return (
             <button
               key={category}
-              className={`${categoryBackgrounds} border primary-border-color p-2 font-bold ${
+              className={`${categoryBackgrounds} primary-border-color border p-2 font-bold ${
                 userSelectCategory === category && 'primary-bg-color'
               }`}
               onClick={() => handleCategoryClick(category)}

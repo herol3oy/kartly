@@ -24,7 +24,7 @@
   }
 
   .primary-badge {
-    @apply h-7 top-0 left-0 px-2 py-1 font-bold primary-bg-color text-center;
+    @apply primary-bg-color left-0 top-0 h-7 px-2 py-1 text-center font-bold;
   }
 
   .card:hover .link {

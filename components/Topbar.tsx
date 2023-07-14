@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const Topbar = () => (
-  <nav className="font-sans text-5xl font-bold text-center py-10 h-16">
+  <nav className="h-16 py-10 text-center font-sans text-5xl font-bold">
     <Link className="primary-text-color" href="/">
       Kartly
     </Link>

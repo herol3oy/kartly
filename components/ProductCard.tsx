@@ -18,11 +18,11 @@ const ProductCard = ({
 
   return (
     <div className="card flex flex-col transition-all hover:-translate-y-2 hover:shadow-xl">
-      <div className="relative h-88 flex flex-col justify-center p-5 border border-b-transparent primary-border-color overflow-hidden">
+      <div className="primary-border-color relative flex h-88 flex-col justify-center overflow-hidden border border-b-transparent p-5">
         <figure>
           <Link href={`products/${id}`}>
             <Image
-              className="h-48 w-full object-scale-down mx-auto"
+              className="mx-auto h-48 w-full object-scale-down"
               src={image}
               width={150}
               height={200}
@@ -33,7 +33,7 @@ const ProductCard = ({
         </figure>
         <div className="flex flex-col gap-1">
           <Link href={`products/${id}`}>
-            <h1 className="font-light text-md my-2 overflow-hidden line-clamp-2 w-full h-12 primary-text-color hover:secondary-text-color">
+            <h1 className="text-md primary-text-color hover:secondary-text-color my-2 line-clamp-2 h-12 w-full overflow-hidden font-light">
               {title}
             </h1>
           </Link>
@@ -45,10 +45,10 @@ const ProductCard = ({
         </div>
       </div>
       <Link
-        className="link flex border primary-border-color transition-all ease-in-out duration-150 p-5"
+        className="link primary-border-color flex border p-5 transition-all duration-150 ease-in-out"
         href={`products/${id}`}
       >
-        <span className="h-6 flex align-baseline justify-between text-xl font-bold w-full">
+        <span className="flex h-6 w-full justify-between align-baseline text-xl font-bold">
           US$ {formatPrice(price)}
         </span>
         <Image
