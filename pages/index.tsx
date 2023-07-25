@@ -18,7 +18,7 @@ const Home = ({ initialProducts }: HomeProps) => {
   const [productSearchQuery, setProductSearchQuery] = useState<string>('')
   const [userSelectCategory, setUserSelectCategory] = useState<string>('')
 
-  const { data: products, isLoading, error } = useProducts(initialProducts)
+  const { data: products, isLoading } = useProducts(initialProducts)
 
   const handleCategoryClick = (category: Category) => {
     setUserSelectCategory(category)
@@ -37,7 +37,7 @@ const Home = ({ initialProducts }: HomeProps) => {
         setProductSearchQuery={setProductSearchQuery}
       />
 
-      <div className="my-10 flex justify-center gap-2">
+      <div className="my-10 flex flex-col justify-center gap-2 md:flex-row">
         <button
           onClick={() => setUserSelectCategory('')}
           className={`${

@@ -30,6 +30,18 @@
   .card:hover .link {
     @apply primary-bg-color text-white;
   }
+
+  html {
+    margin-left: calc(100vw - 100%);
+  }
+
+  .card:hover img {
+    @apply opacity-80;
+  }
+
+  .card:hover h1 {
+    @apply secondary-text-color;
+  }
 }
 
 .container {
