@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -7,6 +6,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'fakestoreapi.com',
+        pathname: '/img/**',
       },
     ],
   },
