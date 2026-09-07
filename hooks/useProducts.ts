@@ -4,11 +4,11 @@ import { requestProducts } from '@/utils/request-products'
 import { useQuery } from '@tanstack/react-query'
 
 export const useProducts = (placeholderData: Product[]): UseProducts => {
-  const { data, isLoading, error } = useQuery<Product[]>({
+  const { data, isLoading, isFetching, error } = useQuery<Product[]>({
     queryKey: ['products'],
     queryFn: requestProducts,
-    initialData: placeholderData,
+    placeholderData,
   })
 
-  return { data, isLoading, error }
+  return { data, isLoading: isLoading || isFetching, error }
 }

@@ -4,10 +4,10 @@ import { RatingDetail } from '@/types/rating-detail'
 export const getRatingDetails = (rating: Rating): RatingDetail[] => [
   {
     value: rating.count,
-    icon: '/icons/thumb-up.svg',
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/icons/thumb-up.svg`,
   },
   {
     value: rating.rate,
-    icon: '/icons/heart.svg',
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/icons/heart.svg`,
   },
 ]

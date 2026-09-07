@@ -86,7 +86,16 @@ const Home = ({ initialProducts }: HomeProps) => {
 }
 
 export async function getStaticProps() {
-  const initialProducts = await requestProducts()
+  let initialProducts: Product[] = []
+
+  if (process.env.GITHUB_PAGES !== 'true') {
+    try {
+      initialProducts = await requestProducts()
+    } catch (error) {
+      console.warn('Could not load products during the static build:', error)
+    }
+  }
+
   return {
     props: {
       initialProducts,

@@ -9,6 +9,19 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
+export function getStaticPaths() {
+  return {
+    paths: Array.from({ length: 20 }, (_, index) => ({
+      params: { id: String(index + 1) },
+    })),
+    fallback: false,
+  }
+}
+
+export function getStaticProps() {
+  return { props: {} }
+}
+
 const ProductPage = () => {
   const [showFullProductDescription, setShowFullProductDescription] =
     useState<boolean>(false)
@@ -24,7 +37,10 @@ const ProductPage = () => {
     setShowFullProductDescription((show) => !show)
   }
 
-  if (isLoading) {
+  // The router is not ready while a static HTML file is being generated.
+  // Always render a valid element during that phase; the browser hydrates the
+  // page with the product id from the URL afterwards.
+  if (!router.isReady || !id || isLoading) {
     return <LoadingProductPage />
   }
 

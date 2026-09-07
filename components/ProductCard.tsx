@@ -46,7 +46,7 @@ const ProductCard = ({
             US$ {formatPrice(price)}
           </span>
           <Image
-            src="/icons/arrow-right.svg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/icons/arrow-right.svg`}
             width={25}
             height={25}
             alt="Arrow right"
