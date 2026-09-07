@@ -3,9 +3,9 @@ import Topbar from '@/components/Topbar'
 import { PropsWithChildren } from 'react'
 
 const Layout = ({ children }: PropsWithChildren) => (
-  <div className="container mx-auto px-5">
+  <div className="container mx-auto max-w-screen-2xl px-5">
     <Topbar />
-    <main>{children}</main>
+    <main className="pb-8">{children}</main>
     <Footer />
   </div>
 )

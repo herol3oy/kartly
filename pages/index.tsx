@@ -32,17 +32,26 @@ const Home = ({ initialProducts }: HomeProps) => {
 
   return (
     <>
+      <section className="mb-10 max-w-2xl">
+        <p className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
+          Browse the collection
+        </p>
+        <h1 className="text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
+          Find something you&apos;ll love.
+        </h1>
+      </section>
+
       <SearchProducts
         productSearchQuery={productSearchQuery}
         setProductSearchQuery={setProductSearchQuery}
       />
 
-      <div className="my-10 flex flex-col justify-center gap-2 md:flex-row">
+      <div className="mb-10 flex flex-wrap gap-2">
         <button
           onClick={() => setUserSelectCategory('')}
           className={`${
             userSelectCategory === '' && 'primary-bg-color text-white'
-          } primary-border-color primary-text-color font-boldx border p-2`}
+          } primary-border-color primary-text-color rounded-full border px-4 py-2 text-sm font-bold transition-colors hover:bg-slate-100`}
         >
           All
         </button>
@@ -57,7 +66,7 @@ const Home = ({ initialProducts }: HomeProps) => {
           return (
             <button
               key={category}
-              className={`${categoryBackgrounds} primary-border-color border p-2 font-bold ${
+              className={`${categoryBackgrounds} primary-border-color rounded-full border px-4 py-2 text-sm font-bold transition-colors hover:bg-slate-100 ${
                 userSelectCategory === category && 'primary-bg-color'
               }`}
               onClick={() => handleCategoryClick(category)}
@@ -69,7 +78,7 @@ const Home = ({ initialProducts }: HomeProps) => {
       </div>
 
       <ProductCardsContainer>
-        {isLoading && !filteredProducts ? (
+        {isLoading ? (
           Array.from({ length: 10 }).map((_, index) => (
             <LoadingProductCard key={index} />
           ))

@@ -6,6 +6,7 @@ import { formatPrice } from '@/utils/format-price'
 import { getRatingDetails } from '@/utils/get-rating-details'
 import ErrorPage from 'next/error'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
@@ -58,7 +59,16 @@ const ProductPage = () => {
     const ratingDetails = getRatingDetails(product.rating)
 
     return (
-      <div className="primary-border-color relative mx-auto mt-36 flex w-full flex-col items-start gap-5 border p-5 md:w-6/12 md:flex-col lg:flex-col xl:flex-col 2xl:flex-row">
+      <div>
+        <Link
+          href="/"
+          className="mb-6 inline-flex items-center gap-2 text-sm font-bold text-slate-500 transition-colors hover:text-blue-600"
+        >
+          <span aria-hidden="true">←</span>
+          Back to products
+        </Link>
+
+        <div className="primary-border-color relative mx-auto flex w-full flex-col items-start gap-5 border p-5 md:w-6/12 md:flex-col lg:flex-col xl:flex-col 2xl:flex-row">
         <div className="flex w-full flex-col justify-center gap-5">
           <Image
             className="mx-auto h-48 w-48 object-contain"
@@ -94,6 +104,7 @@ const ProductPage = () => {
               {showFullProductDescription ? `< Less` : 'More >'}
             </small>
           </div>
+        </div>
         </div>
       </div>
     )
